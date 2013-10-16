@@ -7,6 +7,8 @@
 //
 
 #import "EditPersonViewController.h"
+#import "CoreDataClass.h"
+#import "AppDelegate.h"
 
 @interface EditPersonViewController ()
 
@@ -15,7 +17,7 @@
 
 @implementation EditPersonViewController
 
-@synthesize editablePerson;
+@synthesize editablePerson, firstNameTextField, lastNameTextField, emailAddressTextField, phoneNumberTextField;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -32,42 +34,23 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    _firstNameTextField.text = editablePerson.firstName;
-    _lastNameTextField.text = editablePerson.lastName;
-    _emailAddressTextField.text = editablePerson.emailAddress;
-    _phoneNumberTextField.text = editablePerson.phoneNumber;
-    
-    
-    
-    
-    
+    firstNameTextField.text = editablePerson.firstName;
+    lastNameTextField.text = editablePerson.lastName;
+    emailAddressTextField.text = editablePerson.emailAddress;
+    phoneNumberTextField.text = editablePerson.phoneNumber;
     
 }
 
 - (IBAction)savePersonUpdate:(id)sender {
     
-    //transpose
-    editablePerson.firstName = _firstNameTextField.text;
-    editablePerson.lastName = _lastNameTextField.text;
-    
-    
-    editablePerson.emailAddress = _emailAddressTextField.text ;
-    editablePerson.phoneNumber = _phoneNumberTextField.text ;
-    
-    
-    //navigates back to rootController featuring table
-   // [self.navigationController popToRootViewControllerAnimated:YES];
-    
-    [self.navigationController popViewControllerAnimated:YES];
+    editablePerson.firstName = firstNameTextField.text;
+    editablePerson.lastName = lastNameTextField.text;
+    editablePerson.emailAddress = emailAddressTextField.text ;
+    editablePerson.phoneNumber = phoneNumberTextField.text ;
+
+    [CoreDataClass saveModifiedPersonToCoreData];
 }
 
 
-
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 @end

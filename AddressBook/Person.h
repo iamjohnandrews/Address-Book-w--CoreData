@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <CoreData/CoreData.h>
+
 
 @interface Person : NSManagedObjectContext
 
@@ -20,18 +20,6 @@
 
 @property (strong,nonatomic) NSString* phoneNumber;
 
-
--(void)initWithDictionary: (NSDictionary*)dict;
-
-- (void)createPersonForAddressBook;
-
-- (void)readPeronsContactInformation;
-
-- (void)updateAPersonsContactInformation;
-
-- (void)deletePersonFromAddressBook;
-
-- (void)saveModifiedPersonToCoreData;
 
 
 @end

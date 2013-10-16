@@ -32,48 +32,28 @@
     _lastNameLabel.text= selectedPerson.lastName;
     _emailAddressLabel.text = selectedPerson.emailAddress;
     _phoneNumberLabel.text = selectedPerson.phoneNumber;
-    
-    
-    
-	// Do any additional setup after loading the view.
+
 }
 
--(void)viewWillAppear:(BOOL)animated
+- (void)viewWillAppear:(BOOL)animated
 {
-    
-    
     _firstNameLabel.text = selectedPerson.firstName;
     _lastNameLabel.text= selectedPerson.lastName;
     _emailAddressLabel.text = selectedPerson.emailAddress;
     _phoneNumberLabel.text = selectedPerson.phoneNumber;
-    
-    
-    
 }
 
-
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 - (IBAction)navigateToEditPerson:(id)sender {
     
     [self performSegueWithIdentifier:@"EditPerson" sender:self];
-    
-
 }
 
--(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     
     EditPersonViewController *editPersonViewController = segue.destinationViewController;
     
     [editPersonViewController setEditablePerson:selectedPerson ];
-    
-    
-    
 }
 
 

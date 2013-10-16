@@ -27,6 +27,7 @@
 		777A3D4A17FA72A300E37D9D /* AddPersonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 777A3D4917FA72A300E37D9D /* AddPersonViewController.m */; };
 		8EB735F1180F0F6200879CF2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EB735F0180F0F6200879CF2 /* CoreData.framework */; };
 		8EB735F4180F0F9800879CF2 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8EB735F2180F0F9800879CF2 /* Model.xcdatamodeld */; };
+		8EB735F7180F1A0500879CF2 /* CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB735F6180F1A0500879CF2 /* CoreDataClass.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,8 @@
 		777A3D4917FA72A300E37D9D /* AddPersonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPersonViewController.m; sourceTree = "<group>"; };
 		8EB735F0180F0F6200879CF2 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		8EB735F3180F0F9800879CF2 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		8EB735F5180F1A0500879CF2 /* CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataClass.h; sourceTree = "<group>"; };
+		8EB735F6180F1A0500879CF2 /* CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataClass.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +145,8 @@
 				7774D0E717FA0F57003C0B1B /* ShowPersonViewController.m */,
 				7774D0E317F9FEAC003C0B1B /* Person.h */,
 				7774D0E417F9FEAC003C0B1B /* Person.m */,
+				8EB735F5180F1A0500879CF2 /* CoreDataClass.h */,
+				8EB735F6180F1A0500879CF2 /* CoreDataClass.m */,
 				7774D0C317F9FE42003C0B1B /* ViewController.h */,
 				7774D0C417F9FE42003C0B1B /* ViewController.m */,
 				7774D0C617F9FE42003C0B1B /* Images.xcassets */,
@@ -277,6 +282,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				777A3D4A17FA72A300E37D9D /* AddPersonViewController.m in Sources */,
+				8EB735F7180F1A0500879CF2 /* CoreDataClass.m in Sources */,
 				7774D0E817FA0F57003C0B1B /* ShowPersonViewController.m in Sources */,
 				7774D0EB17FA24C9003C0B1B /* EditPersonViewController.m in Sources */,
 				8EB735F4180F0F9800879CF2 /* Model.xcdatamodeld in Sources */,

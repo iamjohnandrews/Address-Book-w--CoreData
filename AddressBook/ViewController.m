@@ -9,6 +9,9 @@
 #import "ViewController.h"
 #import "Person.h"
 #import "ShowPersonViewController.h"
+#import "CoreDataClass.h"
+#import "AppDelegate.h"
+#import "AddPersonViewController.h"
 
 
 @interface ViewController ()
@@ -16,187 +19,137 @@
 @end
 
 @implementation ViewController
-@synthesize people;
+{    
+    NSArray* addressBookContactsArray;
+}
+
+@synthesize people, indexOfSelectedPerson;
 
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+
 }
 
 
--(void)viewWillAppear:(BOOL)animated
+- (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated]; //Required to run Apple's code for viewWillAppear 
-    
-    [self.tableView reloadData]; //reloads data into a table
-    
- 
-    
+    addressBookContactsArray = [CoreDataClass fetchPeronsContactInformation];
+    [_tableView reloadData]; //reloads data into a table
 }
 
-
-- (void)didReceiveMemoryWarning
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    //return [self.people count]; old way
+    
+    //the number of rows will be the number of people in the array returned from CoreData
+    
+    return addressBookContactsArray.count;
 }
 
-
-
--(UIViewController*)initWithCoder:(NSCoder*)aCoder
-
+- (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    self = [super initWithCoder:aCoder];
-    
-    if (self) {
-        people =[[NSMutableArray alloc]init];
-        
-        Person *p1 = [[Person alloc]init];
-        
-        p1.firstName =@"Jane";
-        p1.lastName =@"Smith";
-        p1.emailAddress = @"jane.smith@company.com";
-        p1.phoneNumber=@"312-765-0987";
-        
-        
-        Person *p2 = [[Person alloc]init];
-        
-        p2.firstName =@"Julio";
-        p2.lastName =@"Juarez";
-        p2.emailAddress = @"J.juarez@company.com";
-        p2.phoneNumber=@"312-765-0988";
-        
-        
-        Person *p3 = [[Person alloc]init];
-        
-        p3.firstName =@"Bill";
-        p3.lastName =@"Frederickson";
-        p3.emailAddress = @"b.frederickson@company.com";
-        p3.phoneNumber=@"312-765-0989";
-        
-        Person *p4 = [[Person alloc]init];
-        
-        p4.firstName =@"Charles";
-        p4.lastName =@"Xavier";
-        p4.emailAddress = @"Charles.Xavier@company.com";
-        p4.phoneNumber=@"312-765-0990";
-        
-        Person *p5 = [[Person alloc]init];
-        
-        p5.firstName =@"Timmy";
-        p5.lastName =@"Jones";
-        p5.emailAddress = @"t.jones@company.com";
-        p5.phoneNumber=@"312-765-0991";
-        
-        
-        [people addObject:p1];
-        [people addObject:p2];
-        [people addObject:p3];
-        [people addObject:p4];
-        [people addObject:p5];
-        
-        
-    }
-    
-    
-    
-    
-    NSLog(@" Hello!");
-    
-    return self;
-    
-}
-
-
-
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    
-    return [self.people count];
-    
-    
-    
-    
-}
-
--(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-    NSString   *identifier =@"abc";
-    
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    NSString* identifier =@"abc";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
     
     if (!cell) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-        
-        
     }
-    
-    Person *personTemp =self.people[indexPath.row];
-    
+    /*Person *personTemp =self.people[indexPath.row];
     cell.textLabel.text =  [NSString stringWithFormat:@" %@  %@", personTemp.firstName,personTemp.lastName ];
+    return cell;
+     old way */
     
+    //need to fill cell with a contact's information from CoreData
+    Person* tempPerson =[addressBookContactsArray objectAtIndex:indexPath.row];
+    cell.textLabel.text = [NSString stringWithFormat:@" %@ %@", tempPerson.firstName, tempPerson.lastName];
     
     return cell;
-    
 }
 
-
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+- (IBAction)addPersonToAddressBookButton:(id)sender {
     
-    
-    
-    _indexOfSelectedPerson = indexPath.row;
-    
-    
-    //show the person ViewController
-    [self performSegueWithIdentifier:@"ShowPerson" sender:self];
-    
-    
-    
+    [self performSegueWithIdentifier:@"VCtoAddVCSegue" sender:self];
 }
 
-
-
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    ShowPersonViewController *showPersonViewController = segue.destinationViewController;
-  
-    /*
-    Person *selectedPerson = people[_indexOfSelectedPerson];
+    indexOfSelectedPerson = indexPath.row;
+    [self performSegueWithIdentifier:@"ShowPerson" sender:self];
+}
 
-    [showPersonViewController setFirstName:[NSString stringWithFormat:@"%@",[selectedPerson firstName]]];
-     
-     [showPersonViewController setLastName:[NSString stringWithFormat:@"%@",[selectedPerson lastName]]];
-    
-    [showPersonViewController setEmailAddress:[NSString stringWithFormat:@"%@",[selectedPerson emailAddress]]];
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSLog(@"sender: %@", sender);
 
-    [showPersonViewController setPhoneNumber:[NSString stringWithFormat:@"%@",[selectedPerson phoneNumber]]];
-    
-    
-    [showPersonViewController setPerson:selectedPerson];
-*/
-    
-    
-    // instead of the preceding in which we set attributes on an individual basis, we passed the person object to the view controller.
-    
-    Person *selectedPerson = people[_indexOfSelectedPerson];
-
-    showPersonViewController.selectedPerson = selectedPerson;
-    
-
-    
-    
+    if ([segue.identifier isEqualToString:@"ShowPerson"])
+    {
+        ShowPersonViewController *showPersonViewController = segue.destinationViewController;
+        showPersonViewController.selectedPerson = [addressBookContactsArray objectAtIndex:indexOfSelectedPerson];
+    }
 }
 
 
 
 
+/*
+ - (UIViewController*)initWithCoder:(NSCoder*)aCoder
+ {
+ self = [super initWithCoder:aCoder];
+ 
+ if (self) {
+ people =[[NSMutableArray alloc]init];
+ 
+ Person *p1 = [[Person alloc]init];
+ 
+ p1.firstName =@"Jane";
+ p1.lastName =@"Smith";
+ p1.emailAddress = @"jane.smith@company.com";
+ p1.phoneNumber=@"312-765-0987";
+ 
+ 
+ Person *p2 = [[Person alloc]init];
+ 
+ p2.firstName =@"Julio";
+ p2.lastName =@"Juarez";
+ p2.emailAddress = @"J.juarez@company.com";
+ p2.phoneNumber=@"312-765-0988";
+ 
+ 
+ Person *p3 = [[Person alloc]init];
+ 
+ p3.firstName =@"Bill";
+ p3.lastName =@"Frederickson";
+ p3.emailAddress = @"b.frederickson@company.com";
+ p3.phoneNumber=@"312-765-0989";
+ 
+ Person *p4 = [[Person alloc]init];
+ 
+ p4.firstName =@"Charles";
+ p4.lastName =@"Xavier";
+ p4.emailAddress = @"Charles.Xavier@company.com";
+ p4.phoneNumber=@"312-765-0990";
+ 
+ Person *p5 = [[Person alloc]init];
+ 
+ p5.firstName =@"Timmy";
+ p5.lastName =@"Jones";
+ p5.emailAddress = @"t.jones@company.com";
+ p5.phoneNumber=@"312-765-0991";
+ 
+ 
+ [people addObject:p1];
+ [people addObject:p2];
+ [people addObject:p3];
+ [people addObject:p4];
+ [people addObject:p5];
+ }
+ return self;
+ }
+ */
 
 
 

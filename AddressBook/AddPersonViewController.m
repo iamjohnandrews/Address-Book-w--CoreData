@@ -7,12 +7,16 @@
 //
 
 #import "AddPersonViewController.h"
+#import "CoreDataClass.h"
+#import "AppDelegate.h"
 
 @interface AddPersonViewController ()
 
 @end
 
 @implementation AddPersonViewController
+
+@synthesize firstNameTextField, lastNameTextField, emailAddressTextField, phoneNumberTextField;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,18 +33,12 @@
 	// Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning
+
+- (IBAction)saveNewPerson:(id)sender
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (IBAction)saveNewPerson:(id)sender {
+    //when user inputs text into text fields, its saved as person in CoreData
+    [CoreDataClass createPersonForAddressBookWithFirstName:firstNameTextField.text LastName:lastNameTextField.text PhoneNumber:phoneNumberTextField.text EmailAddress:emailAddressTextField.text];
+    [CoreDataClass saveModifiedPersonToCoreData];
     
-    
-    
-    
-    [self.navigationController popViewControllerAnimated:YES];
-
 }
 @end
