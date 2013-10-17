@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Address.h"
 
 
 @interface Person : NSManagedObjectContext
-
 
 @property (strong,nonatomic) NSString* firstName;
 
@@ -20,6 +20,8 @@
 
 @property (strong,nonatomic) NSString* phoneNumber;
 
+@property (strong,nonatomic) NSMutableArray* addressHome;
 
+@property (strong,nonatomic) NSMutableArray* addressWork;
 
 @end

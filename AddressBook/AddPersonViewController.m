@@ -16,7 +16,7 @@
 
 @implementation AddPersonViewController
 
-@synthesize firstNameTextField, lastNameTextField, emailAddressTextField, phoneNumberTextField;
+@synthesize firstNameTextField, lastNameTextField, emailAddressTextField, phoneNumberTextField, homeStreetAddressTextField, homeCityTextField, homeStateTextField, homeZipCodeTextField, workStreetAddressTextField, workCityTextField, workStateTextField, workZipCodeTextField;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -37,7 +37,18 @@
 - (IBAction)saveNewPerson:(id)sender
 {
     //when user inputs text into text fields, its saved as person in CoreData
-    [CoreDataClass createPersonForAddressBookWithFirstName:firstNameTextField.text LastName:lastNameTextField.text PhoneNumber:phoneNumberTextField.text EmailAddress:emailAddressTextField.text];
+    [CoreDataClass createPersonForAddressBookWithFirstName:firstNameTextField.text
+                                                  LastName:lastNameTextField.text
+                                               PhoneNumber:phoneNumberTextField.text
+                                              EmailAddress:emailAddressTextField.text
+                                         HomeStreetAddress:homeStreetAddressTextField.text
+                                                  HomeCity:homeCityTextField.text
+                                                 HomeState:homeStateTextField.text
+                                               HomeZipCode:homeZipCodeTextField.text
+                                         WorkStreetAddress:workStreetAddressTextField.text
+                                                  WorkCity:workCityTextField.text
+                                                 WorkState:workStateTextField.text
+                                               WorkZipCode:workZipCodeTextField.text];
     [CoreDataClass saveModifiedPersonToCoreData];
     
 }

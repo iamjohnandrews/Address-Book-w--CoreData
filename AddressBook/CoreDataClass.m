@@ -13,6 +13,7 @@
 #import "EditPersonViewController.h"
 #import "ShowPersonViewController.h"
 #import "AppDelegate.h"
+#import "Address.h"
 
 @implementation CoreDataClass
 {
@@ -21,20 +22,45 @@
 
 
 //CRUDS
-+ (void)createPersonForAddressBookWithFirstName:(NSString*)firstName LastName:(NSString*)lastName PhoneNumber:(NSString*)phoneNumber EmailAddress:(NSString*)emailAddress
++ (void)createPersonForAddressBookWithFirstName:(NSString*)firstName
+                                       LastName:(NSString*)lastName
+                                    PhoneNumber:(NSString*)phoneNumber
+                                   EmailAddress:(NSString*)emailAddress
+                              HomeStreetAddress:(NSString*)homeStreetAddress
+                                       HomeCity:(NSString*)homeCity
+                                      HomeState:(NSString*)homeState
+                                    HomeZipCode:(NSString*)homeZipCode
+                              WorkStreetAddress:(NSString*)workStreetAddress
+                                       WorkCity:(NSString*)workCity
+                                      WorkState:(NSString*)workState
+                                    WorkZipCode:(NSString*)workZipCode
 {
     //make the text user enters (located in AddPersonViewController) equal to a new person
-    Person* newContact = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:[(AppDelegate *)[UIApplication sharedApplication].delegate managedObjectContext]];
+    Person* newContactPart1 = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:[(AppDelegate *)[UIApplication sharedApplication].delegate managedObjectContext]];
     
-    newContact.firstName = firstName;
-    newContact.lastName = lastName;
-    newContact.emailAddress = emailAddress;
-    newContact.phoneNumber = phoneNumber;
+    Address* newContactPart2 = [NSEntityDescription insertNewObjectForEntityForName:@"Address" inManagedObjectContext:[(AppDelegate *)[UIApplication sharedApplication].delegate managedObjectContext]];
+    
+    newContactPart1.firstName = firstName;
+    newContactPart1.lastName = lastName;
+    newContactPart1.emailAddress = emailAddress;
+    newContactPart1.phoneNumber = phoneNumber;
+    
+    newContactPart2.homeStreetAddress = homeStreetAddress;
+    newContactPart2.homeCity = homeCity;
+    newContactPart2.homeState = homeState;
+    newContactPart2.homeZipCode = homeZipCode;
+    newContactPart2.workStreetAddress = workStreetAddress;
+    newContactPart2.workCity = workCity;
+    newContactPart2.workState = workState;
+    newContactPart2.workZipCode = workZipCode;
+    
+//    newContactPart1.addressHome = [NSMutableArray arrayWithObjects:@[newContactPart2.homeStreetAddress], @[newContactPart2.homeCity], @[newContactPart2.homeState], @[newContactPart2.homeZipCode], nil];
+//    newContactPart1.addressWork = [NSMutableArray arrayWithObjects:@[newContactPart2.workStreetAddress], @[newContactPart2.workCity], @[newContactPart2.workState], @[newContactPart2.workZipCode], nil];
 }
 
 + (NSArray*)fetchPeronsContactInformation
 {
-    //view the must up-to-date information about a person from CoreData
+    //view the most up-to-date information about a person from CoreData
     NSError* error;
     NSFetchRequest* fetchRequest = [[NSFetchRequest alloc] init];
 

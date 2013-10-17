@@ -17,7 +17,7 @@
 
 @implementation EditPersonViewController
 
-@synthesize editablePerson, firstNameTextField, lastNameTextField, emailAddressTextField, phoneNumberTextField;
+@synthesize editablePerson, firstNameTextField, lastNameTextField, emailAddressTextField, phoneNumberTextField, homeStreetAddressTextField, homeCityTextField, homeStateTextField, homeZipCodeTextField, workStreetAddressTextField, workCityTextField, workStateTextField, workZipCodeTextField, editablePersonsAddress;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -39,6 +39,15 @@
     emailAddressTextField.text = editablePerson.emailAddress;
     phoneNumberTextField.text = editablePerson.phoneNumber;
     
+    homeStreetAddressTextField.text = editablePersonsAddress.homeStreetAddress;
+    homeCityTextField.text = editablePersonsAddress.homeCity;
+    homeStateTextField.text = editablePersonsAddress.homeState;
+    homeZipCodeTextField.text = editablePersonsAddress.homeZipCode;
+    
+    workStreetAddressTextField.text = editablePersonsAddress.workStreetAddress;
+    workCityTextField.text = editablePersonsAddress.workCity;
+    workStateTextField.text = editablePersonsAddress.workState;
+    workZipCodeTextField.text = editablePersonsAddress.workZipCode;
 }
 
 - (IBAction)savePersonUpdate:(id)sender {
@@ -47,6 +56,16 @@
     editablePerson.lastName = lastNameTextField.text;
     editablePerson.emailAddress = emailAddressTextField.text ;
     editablePerson.phoneNumber = phoneNumberTextField.text ;
+    
+    editablePersonsAddress.homeStreetAddress = homeStreetAddressTextField.text;
+    editablePersonsAddress.homeCity = homeCityTextField.text;
+    editablePersonsAddress.homeState = homeStateTextField.text;
+    editablePersonsAddress.homeZipCode = homeZipCodeTextField.text;
+    
+    editablePersonsAddress.workStreetAddress = workStreetAddressTextField.text;
+    editablePersonsAddress.workCity = workCityTextField.text;
+    editablePersonsAddress.workState = workStateTextField.text;
+    editablePersonsAddress.workZipCode = workZipCodeTextField.text;
 
     [CoreDataClass saveModifiedPersonToCoreData];
 }

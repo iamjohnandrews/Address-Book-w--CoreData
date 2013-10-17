@@ -1,12 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="12F45" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Address" syncable="YES">
+        <attribute name="homeCity" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="homeState" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="homeStretAddress" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="homeZipCode" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="workCity" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="workState" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="workStreetAddress" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="workZipCode" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="addresses" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Person" inverseName="addresses" inverseEntity="Person" syncable="YES"/>
+    </entity>
     <entity name="Person" syncable="YES">
         <attribute name="emailAddress" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="phoneNumber" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="addresses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Address" inverseName="addresses" inverseEntity="Address" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Person" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Address" positionX="160" positionY="192" width="128" height="178"/>
+        <element name="Person" positionX="-144" positionY="125" width="128" height="118"/>
     </elements>
 </model>

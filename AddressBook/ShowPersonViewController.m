@@ -13,7 +13,7 @@
 @end
 
 @implementation ShowPersonViewController
-@synthesize selectedPerson;
+@synthesize selectedPerson, firstNameLabel, lastNameLabel, emailAddressLabel, phoneNumberLabel, homeCityLabel, homeStateLabel, homeStreetAddressLabel, homeZipCodeLabel, workCityLabel, workStateAddressLabel, workStreetAddressLabel, workZipCodeLabel, selectedPersonsAddress;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -28,19 +28,38 @@
 {
     [super viewDidLoad];
     
-    _firstNameLabel.text = selectedPerson.firstName;
-    _lastNameLabel.text= selectedPerson.lastName;
-    _emailAddressLabel.text = selectedPerson.emailAddress;
-    _phoneNumberLabel.text = selectedPerson.phoneNumber;
-
+    firstNameLabel.text = selectedPerson.firstName;
+    lastNameLabel.text= selectedPerson.lastName;
+    emailAddressLabel.text = selectedPerson.emailAddress;
+    phoneNumberLabel.text = selectedPerson.phoneNumber;
+    
+    homeStreetAddressLabel.text = selectedPersonsAddress.homeStreetAddress;
+    homeCityLabel.text = selectedPersonsAddress.homeCity;
+    homeStateLabel.text = selectedPersonsAddress.homeState;
+    homeZipCodeLabel.text = selectedPersonsAddress.homeZipCode;
+    
+    workStateAddressLabel.text = selectedPersonsAddress.workStreetAddress;
+    workCityLabel.text = selectedPersonsAddress.workCity;
+    workStateAddressLabel.text = selectedPersonsAddress.workState;
+    workZipCodeLabel.text = selectedPersonsAddress.workZipCode;
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    _firstNameLabel.text = selectedPerson.firstName;
-    _lastNameLabel.text= selectedPerson.lastName;
-    _emailAddressLabel.text = selectedPerson.emailAddress;
-    _phoneNumberLabel.text = selectedPerson.phoneNumber;
+    firstNameLabel.text = selectedPerson.firstName;
+    lastNameLabel.text= selectedPerson.lastName;
+    emailAddressLabel.text = selectedPerson.emailAddress;
+    phoneNumberLabel.text = selectedPerson.phoneNumber;
+    
+    homeStreetAddressLabel.text = selectedPersonsAddress.homeStreetAddress;
+    homeCityLabel.text = selectedPersonsAddress.homeCity;
+    homeStateLabel.text = selectedPersonsAddress.homeState;
+    homeZipCodeLabel.text = selectedPersonsAddress.homeZipCode;
+    
+    workStateAddressLabel.text = selectedPersonsAddress.workStreetAddress;
+    workCityLabel.text = selectedPersonsAddress.workCity;
+    workStateAddressLabel.text = selectedPersonsAddress.workState;
+    workZipCodeLabel.text = selectedPersonsAddress.workZipCode;
 }
 
 

@@ -8,35 +8,40 @@
 
 #import <UIKit/UIKit.h>
 #import "Person.h"
+#import "Address.h"
 
 @interface ShowPersonViewController : UIViewController
+
 @property (weak, nonatomic) IBOutlet UILabel *firstNameLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *lastNameLabel;
 
-
 @property (weak, nonatomic) IBOutlet UILabel *emailAddressLabel;
-
 
 @property (weak, nonatomic) IBOutlet UILabel *phoneNumberLabel;
 
+@property (weak, nonatomic) IBOutlet UILabel *homeStreetAddressLabel;
 
-@property  (weak, nonatomic) Person *selectedPerson;
+@property (weak, nonatomic) IBOutlet UILabel *homeCityLabel;
 
+@property (weak, nonatomic) IBOutlet UILabel *homeStateLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *homeZipCodeLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *workStreetAddressLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *workCityLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *workStateAddressLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *workZipCodeLabel;
+
+@property (weak, nonatomic) Person *selectedPerson;
+
+@property (weak, nonatomic) Address *selectedPersonsAddress;
 
 - (IBAction)navigateToEditPerson:(id)sender;
 
 
-/* Replacing the proceeding with a Person
-@property (weak,nonatomic) NSString * firstName;
-
-
-@property (weak,nonatomic) NSString * lastName;
-
-@property (weak,nonatomic) NSString * emailAddress;
-
-@property (weak,nonatomic) NSString * phoneNumber;
-
-*/
 
 @end

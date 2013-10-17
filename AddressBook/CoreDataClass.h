@@ -12,7 +12,7 @@
 @interface CoreDataClass : NSObject
 
 
-+ (void)createPersonForAddressBookWithFirstName:(NSString*)firstName LastName:(NSString*)lastName PhoneNumber:(NSString*)phoneNumber EmailAddress:(NSString*)emailAddress;
++ (void)createPersonForAddressBookWithFirstName:(NSString*)firstName LastName:(NSString*)lastName PhoneNumber:(NSString*)phoneNumber EmailAddress:(NSString*)emailAddress HomeStreetAddress:(NSString*)homeStreetAddress HomeCity:(NSString*)homeCity HomeState:(NSString*)homeState HomeZipCode:(NSString*)homeZipCode WorkStreetAddress:(NSString*)workStreetAddress WorkCity:(NSString*)workCity WorkState:(NSString*)workState WorkZipCode:(NSString*)workZipCode;
 
 + (NSArray*)fetchPeronsContactInformation;
 

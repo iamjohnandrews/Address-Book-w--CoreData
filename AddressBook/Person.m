@@ -7,11 +7,11 @@
 //
 
 #import "Person.h"
-
+#import "Address.h"
 
 @implementation Person
 
-@dynamic firstName, lastName, emailAddress, phoneNumber;
+@dynamic firstName, lastName, emailAddress, phoneNumber, addressHome, addressWork;
 
 
 @end
