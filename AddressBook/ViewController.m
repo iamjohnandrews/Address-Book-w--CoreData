@@ -86,7 +86,7 @@
 {
     NSLog(@"sender: %@", sender);
 
-    if ([segue.identifier isEqualToString:@"ShowPerson"] || [segue.destinationViewController isKindOfClass: [ShowPersonViewController class]])
+    if ([segue.identifier isEqualToString:@"ShowPerson"])
     {
         ShowPersonViewController *showPersonViewController = segue.destinationViewController;
         showPersonViewController.selectedPerson = [addressBookContactsArray objectAtIndex:indexOfSelectedPerson];
@@ -111,18 +111,18 @@
         SWRevealViewControllerSegue* rvcs = (SWRevealViewControllerSegue*) segue;
         
         SWRevealViewController* rvc = self.revealViewController;
-        NSAssert( rvc != nil, @"oops! must have a revealViewController" );
-        
-        NSAssert( [rvc.frontViewController isKindOfClass: [UINavigationController class]], @"oops!  for this segue we want a permanent navigation controller in the front!" );
+//        NSAssert( rvc != nil, @"oops! must have a revealViewController" );
+//        
+//        NSAssert( [rvc.frontViewController isKindOfClass: [UINavigationController class]], @"oops!  for this segue we want a permanent navigation controller in the front!" );
         
         rvcs.performBlock = ^(SWRevealViewControllerSegue* rvc_segue, UIViewController* svc, UIViewController* dvc) {
             
-            //            UINavigationController* nc = (UINavigationController*)rvc.frontViewController;
-            //            [nc setViewControllers: @[ dvc ] animated: NO ];
-            //            [rvc setFrontViewPosition: FrontViewPositionLeft animated: YES];
+                        UINavigationController* nc = (UINavigationController*)rvc.frontViewController;
+                        [nc setViewControllers: @[ dvc ] animated: NO ];
+                        [rvc setFrontViewPosition: FrontViewPositionLeft animated: YES];
             
-            UINavigationController* nc = [[UINavigationController alloc] initWithRootViewController:dvc];
-            [rvc setFrontViewController:nc animated:YES];
+            //UINavigationController* nc = [[UINavigationController alloc] initWithRootViewController:dvc];
+            //[rvc setFrontViewController:nc animated:YES];
         };
     }
 }

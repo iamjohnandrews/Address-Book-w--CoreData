@@ -20,7 +20,7 @@
                     <connections>
                         <outlet property="view" destination="Icr-fE-BrX" id="jZO-dG-3PP"/>
                         <segue destination="yr7-qC-BbL" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegue" id="r4Q-RS-No7"/>
-                        <segue destination="vXZ-lx-hvc" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegue" id="dRk-da-aEf"/>
+                        <segue destination="vXZ-lx-hvc" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegue" id="lT6-bU-zoj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ED2-W4-9VX" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -67,7 +67,7 @@
                                 </state>
                                 <connections>
                                     <action selector="addPersonToAddressBookButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="6PM-S1-Odz"/>
-                                    <segue destination="1aw-Iu-229" kind="push" identifier="VCtoAddVCSegue" id="wZm-mg-2PV"/>
+                                    <segue destination="1aw-Iu-229" kind="custom" identifier="VCtoAddVCSegue" customClass="SWRevealViewControllerSegue" id="wZm-mg-2PV"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -76,13 +76,13 @@
                     <navigationItem key="navigationItem" id="1kg-5i-0Jx"/>
                     <connections>
                         <outlet property="tableView" destination="J0d-xx-wpc" id="pBg-Po-EDg"/>
-                        <segue destination="8e0-hH-ape" kind="push" identifier="ShowPerson" id="n8g-44-RbG"/>
+                        <segue destination="8e0-hH-ape" kind="custom" identifier="ShowPerson" customClass="SWRevealViewControllerSegue" id="n8g-44-RbG"/>
                         <segue destination="Ui8-2Q-CI7" kind="custom" customClass="SWRevealViewControllerSegue" id="UoR-Pp-SjD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="189" y="17"/>
+            <point key="canvasLocation" x="181" y="13"/>
         </scene>
         <!--Map View Controller - Contact's Map-->
         <scene sceneID="Qso-TT-Adq">
@@ -114,7 +114,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hb8-Cq-5dZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="701" y="709"/>
+            <point key="canvasLocation" x="791" y="717"/>
         </scene>
         <!--Show Person View Controller-->
         <scene sceneID="TwK-rn-xen">
@@ -177,7 +177,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xwC-j1-eSh">
-                                <rect key="frame" x="269" y="69" width="30" height="30"/>
+                                <rect key="frame" x="270" y="53" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Edit">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -277,12 +277,12 @@
                         <outlet property="workStateAddressLabel" destination="EZ7-ZQ-iGO" id="p0g-q4-PO5"/>
                         <outlet property="workStreetAddressLabel" destination="RjL-Dj-k7T" id="lGa-kL-P18"/>
                         <outlet property="workZipCodeLabel" destination="XCU-aD-72u" id="gKy-xy-yhn"/>
-                        <segue destination="0tW-LU-O8k" kind="push" identifier="EditPerson" id="J2G-fv-E66"/>
+                        <segue destination="0tW-LU-O8k" kind="custom" identifier="EditPerson" customClass="SWRevealViewControllerSegue" id="J2G-fv-E66"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mZB-tk-SXx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="779" y="-267"/>
+            <point key="canvasLocation" x="885" y="-337"/>
         </scene>
         <!--Add Person View Controller-->
         <scene sceneID="cXT-bF-TF2">
@@ -436,7 +436,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SQ5-xv-fnr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1279" y="446"/>
+            <point key="canvasLocation" x="1393" y="472"/>
         </scene>
         <!--Edit Person View Controller-->
         <scene sceneID="6wj-Qv-zqi">
@@ -588,7 +588,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e7p-wv-hVA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1287" y="-267"/>
+            <point key="canvasLocation" x="1495" y="-221"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3E7-E9-anM">
@@ -619,6 +619,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="o6R-qS-wsq"/>
+        <segue reference="UoR-Pp-SjD"/>
     </inferredMetricsTieBreakers>
 </document>
