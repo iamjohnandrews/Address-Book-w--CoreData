@@ -25,6 +25,11 @@
 		7774D0E817FA0F57003C0B1B /* ShowPersonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7774D0E717FA0F57003C0B1B /* ShowPersonViewController.m */; };
 		7774D0EB17FA24C9003C0B1B /* EditPersonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7774D0EA17FA24C9003C0B1B /* EditPersonViewController.m */; };
 		777A3D4A17FA72A300E37D9D /* AddPersonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 777A3D4917FA72A300E37D9D /* AddPersonViewController.m */; };
+		8E5F8C6018130C230037BB9C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E5F8C5F18130C230037BB9C /* QuartzCore.framework */; };
+		8E5F8C6818131B2E0037BB9C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E5F8C6718131B2E0037BB9C /* MapKit.framework */; };
+		8E5F8C6D18131BA10037BB9C /* reveal-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E5F8C6918131BA10037BB9C /* reveal-icon.png */; };
+		8E5F8C6E18131BA10037BB9C /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E5F8C6C18131BA10037BB9C /* SWRevealViewController.m */; };
+		8E5F8C7118131C1B0037BB9C /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E5F8C7018131C1B0037BB9C /* MapViewController.m */; };
 		8E6B5A61181064B90014417E /* Address.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6B5A60181064B90014417E /* Address.m */; };
 		8EB735F1180F0F6200879CF2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EB735F0180F0F6200879CF2 /* CoreData.framework */; };
 		8EB735F4180F0F9800879CF2 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8EB735F2180F0F9800879CF2 /* Model.xcdatamodeld */; };
@@ -69,6 +74,13 @@
 		7774D0EA17FA24C9003C0B1B /* EditPersonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditPersonViewController.m; sourceTree = "<group>"; };
 		777A3D4817FA72A300E37D9D /* AddPersonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPersonViewController.h; sourceTree = "<group>"; };
 		777A3D4917FA72A300E37D9D /* AddPersonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPersonViewController.m; sourceTree = "<group>"; };
+		8E5F8C5F18130C230037BB9C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		8E5F8C6718131B2E0037BB9C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		8E5F8C6918131BA10037BB9C /* reveal-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "reveal-icon.png"; path = "../../../../../Downloads/SWRevealViewController-master/RevealControllerStoryboardExample/RevealControllerStoryboardExample/reveal-icon.png"; sourceTree = "<group>"; };
+		8E5F8C6B18131BA10037BB9C /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		8E5F8C6C18131BA10037BB9C /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		8E5F8C6F18131C1B0037BB9C /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		8E5F8C7018131C1B0037BB9C /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		8E6B5A5F181064B90014417E /* Address.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Address.h; sourceTree = "<group>"; };
 		8E6B5A60181064B90014417E /* Address.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Address.m; sourceTree = "<group>"; };
 		8EB735F0180F0F6200879CF2 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -82,6 +94,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E5F8C6818131B2E0037BB9C /* MapKit.framework in Frameworks */,
+				8E5F8C6018130C230037BB9C /* QuartzCore.framework in Frameworks */,
 				8EB735F1180F0F6200879CF2 /* CoreData.framework in Frameworks */,
 				7774D0B117F9FE42003C0B1B /* CoreGraphics.framework in Frameworks */,
 				7774D0B317F9FE42003C0B1B /* UIKit.framework in Frameworks */,
@@ -124,6 +138,8 @@
 		7774D0AD17F9FE42003C0B1B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8E5F8C6718131B2E0037BB9C /* MapKit.framework */,
+				8E5F8C5F18130C230037BB9C /* QuartzCore.framework */,
 				8EB735F0180F0F6200879CF2 /* CoreData.framework */,
 				7774D0AE17F9FE42003C0B1B /* Foundation.framework */,
 				7774D0B017F9FE42003C0B1B /* CoreGraphics.framework */,
@@ -139,6 +155,8 @@
 				7774D0BD17F9FE42003C0B1B /* AppDelegate.h */,
 				7774D0BE17F9FE42003C0B1B /* AppDelegate.m */,
 				7774D0C017F9FE42003C0B1B /* Main.storyboard */,
+				8E5F8C6F18131C1B0037BB9C /* MapViewController.h */,
+				8E5F8C7018131C1B0037BB9C /* MapViewController.m */,
 				8EB735F2180F0F9800879CF2 /* Model.xcdatamodeld */,
 				777A3D4817FA72A300E37D9D /* AddPersonViewController.h */,
 				777A3D4917FA72A300E37D9D /* AddPersonViewController.m */,
@@ -152,6 +170,8 @@
 				8EB735F6180F1A0500879CF2 /* CoreDataClass.m */,
 				7774D0C317F9FE42003C0B1B /* ViewController.h */,
 				7774D0C417F9FE42003C0B1B /* ViewController.m */,
+				8E5F8C6918131BA10037BB9C /* reveal-icon.png */,
+				8E5F8C6A18131BA10037BB9C /* SWRevealViewController */,
 				8E6B5A5F181064B90014417E /* Address.h */,
 				8E6B5A60181064B90014417E /* Address.m */,
 				7774D0C617F9FE42003C0B1B /* Images.xcassets */,
@@ -187,6 +207,16 @@
 				7774D0D617F9FE43003C0B1B /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8E5F8C6A18131BA10037BB9C /* SWRevealViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8E5F8C6B18131BA10037BB9C /* SWRevealViewController.h */,
+				8E5F8C6C18131BA10037BB9C /* SWRevealViewController.m */,
+			);
+			name = SWRevealViewController;
+			path = "../../../../../Downloads/SWRevealViewController-master/SWRevealViewController";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,6 +298,7 @@
 				7774D0C717F9FE42003C0B1B /* Images.xcassets in Resources */,
 				7774D0B917F9FE42003C0B1B /* InfoPlist.strings in Resources */,
 				7774D0C217F9FE42003C0B1B /* Main.storyboard in Resources */,
+				8E5F8C6D18131BA10037BB9C /* reveal-icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,11 +320,13 @@
 				777A3D4A17FA72A300E37D9D /* AddPersonViewController.m in Sources */,
 				8EB735F7180F1A0500879CF2 /* CoreDataClass.m in Sources */,
 				7774D0E817FA0F57003C0B1B /* ShowPersonViewController.m in Sources */,
+				8E5F8C7118131C1B0037BB9C /* MapViewController.m in Sources */,
 				7774D0EB17FA24C9003C0B1B /* EditPersonViewController.m in Sources */,
 				8EB735F4180F0F9800879CF2 /* Model.xcdatamodeld in Sources */,
 				7774D0C517F9FE42003C0B1B /* ViewController.m in Sources */,
 				7774D0BF17F9FE42003C0B1B /* AppDelegate.m in Sources */,
 				7774D0E517F9FEAC003C0B1B /* Person.m in Sources */,
+				8E5F8C6E18131BA10037BB9C /* SWRevealViewController.m in Sources */,
 				8E6B5A61181064B90014417E /* Address.m in Sources */,
 				7774D0BB17F9FE42003C0B1B /* main.m in Sources */,
 			);

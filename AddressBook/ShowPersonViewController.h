@@ -12,6 +12,8 @@
 
 @interface ShowPersonViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *revealButtonItem;
+
 @property (weak, nonatomic) IBOutlet UILabel *firstNameLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *lastNameLabel;

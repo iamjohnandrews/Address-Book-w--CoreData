@@ -3,7 +3,7 @@
     <entity name="Address" syncable="YES">
         <attribute name="homeCity" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="homeState" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="homeStretAddress" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="homeStreetAddress" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="homeZipCode" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="workCity" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="workState" optional="YES" attributeType="String" syncable="YES"/>

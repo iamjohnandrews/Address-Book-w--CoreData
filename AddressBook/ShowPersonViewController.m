@@ -8,12 +8,13 @@
 
 #import "ShowPersonViewController.h"
 #import "EditPersonViewController.h"
+#import "SWRevealViewController.h"
 @interface ShowPersonViewController ()
 
 @end
 
 @implementation ShowPersonViewController
-@synthesize selectedPerson, firstNameLabel, lastNameLabel, emailAddressLabel, phoneNumberLabel, homeCityLabel, homeStateLabel, homeStreetAddressLabel, homeZipCodeLabel, workCityLabel, workStateAddressLabel, workStreetAddressLabel, workZipCodeLabel, selectedPersonsAddress;
+@synthesize selectedPerson, firstNameLabel, lastNameLabel, emailAddressLabel, phoneNumberLabel, homeCityLabel, homeStateLabel, homeStreetAddressLabel, homeZipCodeLabel, workCityLabel, workStateAddressLabel, workStreetAddressLabel, workZipCodeLabel, selectedPersonsAddress, revealButtonItem;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -23,6 +24,7 @@
     }
     return self;
 }
+
 
 - (void)viewDidLoad
 {
@@ -42,6 +44,10 @@
     workCityLabel.text = selectedPersonsAddress.workCity;
     workStateAddressLabel.text = selectedPersonsAddress.workState;
     workZipCodeLabel.text = selectedPersonsAddress.workZipCode;
+    
+    [self.revealButtonItem setTarget: self.revealViewController];
+    [self.revealButtonItem setAction: @selector( revealToggle: )];
+    [self.navigationController.navigationBar addGestureRecognizer: self.revealViewController.panGestureRecognizer];
 }
 
 - (void)viewWillAppear:(BOOL)animated

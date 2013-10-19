@@ -12,6 +12,7 @@
 #import "CoreDataClass.h"
 #import "AppDelegate.h"
 #import "AddPersonViewController.h"
+#import "SWRevealViewController.h"
 
 
 @interface ViewController ()
@@ -85,10 +86,44 @@
 {
     NSLog(@"sender: %@", sender);
 
-    if ([segue.identifier isEqualToString:@"ShowPerson"])
+    if ([segue.identifier isEqualToString:@"ShowPerson"] || [segue.destinationViewController isKindOfClass: [ShowPersonViewController class]])
     {
         ShowPersonViewController *showPersonViewController = segue.destinationViewController;
         showPersonViewController.selectedPerson = [addressBookContactsArray objectAtIndex:indexOfSelectedPerson];
+    }
+    // configure the destination view controller:
+    /*if ( [segue.destinationViewController isKindOfClass: [ShowPersonViewController class]] &&
+        [sender isKindOfClass:[UITableViewCell class]] )
+    {
+        SWUITableViewCell* c = (SWUITableViewCell *)sender;
+        ColorViewController* cvc = segue.destinationViewController;
+        
+        [cvc view];
+        cvc.label.textColor = c.label.textColor;
+        cvc.label.text = c.label.text;
+    }*/
+    
+    // configure the segue.
+    // in this case we dont swap out the front view controller, which is a UINavigationController.
+    // but we could..
+    if ( [segue isKindOfClass: [SWRevealViewControllerSegue class]] )
+    {
+        SWRevealViewControllerSegue* rvcs = (SWRevealViewControllerSegue*) segue;
+        
+        SWRevealViewController* rvc = self.revealViewController;
+        NSAssert( rvc != nil, @"oops! must have a revealViewController" );
+        
+        NSAssert( [rvc.frontViewController isKindOfClass: [UINavigationController class]], @"oops!  for this segue we want a permanent navigation controller in the front!" );
+        
+        rvcs.performBlock = ^(SWRevealViewControllerSegue* rvc_segue, UIViewController* svc, UIViewController* dvc) {
+            
+            //            UINavigationController* nc = (UINavigationController*)rvc.frontViewController;
+            //            [nc setViewControllers: @[ dvc ] animated: NO ];
+            //            [rvc setFrontViewPosition: FrontViewPositionLeft animated: YES];
+            
+            UINavigationController* nc = [[UINavigationController alloc] initWithRootViewController:dvc];
+            [rvc setFrontViewController:nc animated:YES];
+        };
     }
 }
 
